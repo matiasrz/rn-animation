@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
+import { StatusBar } from 'expo-status-bar'
+
+import { CircleHBView, CircleHBSvg } from './src/CircleHeartBeat'
+import { View } from 'react-native'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <SafeAreaProvider>
       <StatusBar style="auto" />
-    </View>
-  );
+      <SafeAreaView style={{ paddingLeft: 20, paddingRight: 20 }}>
+        <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap' }}>
+          <CircleHBView />
+          <CircleHBSvg />
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
